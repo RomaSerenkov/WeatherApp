@@ -1,0 +1,46 @@
+{
+    "name": "serenkov/localhost",
+    "authors": [
+        {
+            "name": "Roman Serenkov",
+            "email": "serenkovroma@mail.ru"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Vendor\\Namespace\\": ""
+        },
+        "psr-0": {
+            "Monolog": "src/",
+            "Vendor\\Namespace": ["src/"],
+            "Pear_Style": "src/",
+            "": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "App\\Composer\\ScriptHandler::postHooks"
+        ],
+        "post-update-cmd": [
+            "App\\Composer\\ScriptHandler::postHooks"
+        ],
+        "pre-update-cmd": "App\\Composer\\ScriptHandler::preHooks",
+        "pre-install-cmd": "App\\Composer\\ScriptHandler::preHooks"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "symfony/process": "^4.4",
+        "symfony/console": "^4.4",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "extra": {
+        "hooks": {
+            "pre-commit": "hooks/pre-commit.php"
+        }
+    }
+}
