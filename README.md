@@ -19,11 +19,6 @@ next
 ```
 #### Step 5. If you need to perform PHPUnit tests. Go to the root directory of the project and run the command
 ```
-    docker ps
-```
-Copy NAME_CONTAINER
-next
-```
    docker exec NAME_CONTAINER vendor/phpunit/phpunit/phpunit Tests sh
 
 ```
