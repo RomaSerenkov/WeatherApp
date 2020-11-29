@@ -19,6 +19,6 @@ next
 ```
 #### Step 5. If you need to perform PHPUnit tests. Go to the root directory of the project and run the command
 ```
-   docker exec NAME_CONTAINER vendor/phpunit/phpunit/phpunit Tests sh
+   docker exec weatherapp_app_1 vendor/phpunit/phpunit/phpunit Tests sh
 
 ```
