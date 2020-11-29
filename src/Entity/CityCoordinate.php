@@ -1,30 +1,23 @@
 <?php
-
 namespace App\Entity;
 
 class CityCoordinate
 {
-    private $lat;
-    private $long;
+    private float $lat;
+    private float $long;
 
-    public function __construct($lat, $long)
+    public function __construct(float $lat, float $long)
     {
         $this->lat = $lat;
         $this->long = $long;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getLat()
+    public function getLat(): float
     {
         return $this->lat;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getLong()
+    public function getLong(): float
     {
         return $this->long;
     }

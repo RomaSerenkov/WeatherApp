@@ -17,30 +17,24 @@
         },
         "psr-0": {
             "Monolog": "src/",
-            "Vendor\\Namespace": ["src/"],
+            "Vendor\\Namespace": [
+                "src/"
+            ],
             "Pear_Style": "src/",
             "": "src/"
         }
     },
     "scripts": {
-        "post-install-cmd": [
-            "App\\Composer\\ScriptHandler::postHooks"
-        ],
-        "post-update-cmd": [
-            "App\\Composer\\ScriptHandler::postHooks"
-        ],
-        "pre-update-cmd": "App\\Composer\\ScriptHandler::preHooks",
-        "pre-install-cmd": "App\\Composer\\ScriptHandler::preHooks"
+        "cs-fix": [
+            "php-cs-fixer fix src --rules=@PSR2"
+        ]
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
         "symfony/process": "^4.4",
         "symfony/console": "^4.4",
-        "squizlabs/php_codesniffer": "^3.5"
-    },
-    "extra": {
-        "hooks": {
-            "pre-commit": "hooks/pre-commit.php"
-        }
+        "phpstan/phpstan": "^0.12.57",
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpunit/phpunit": "^9.4"
     }
 }
