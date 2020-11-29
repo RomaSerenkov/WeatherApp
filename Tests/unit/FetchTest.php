@@ -7,10 +7,32 @@ use \App\Fetch;
 final class FetchTest extends TestCase
 {
     private Fetch $fetcher;
+    private Client $client;
+    const URI_API_CITIES  = 'https://api.musement.com/api/v3/cities';
+    const URI_API_WEATHER = 'http://api.weatherapi.com/v1/forecast.json?key=766cfd9a90284a46bbf121913202611&days=2&q=';
 
     public function setUp(): void
     {
-        $this->fetcher = new Fetch(new Client());
+        $this->client = new Client();
+        $this->fetcher = new Fetch($this->client);
+    }
+
+    public function testJsonStructuresСities(): void
+    {
+        $results = $this->client->request('GET', self::URI_API_CITIES);
+
+        $results = json_decode($results->getBody()->getContents(), true);
+
+        $mandatoryFields = [
+            'longitude',
+            'latitude'
+        ];
+
+        foreach ($results as $result) {
+            foreach ($mandatoryFields as $field) {
+                $this->assertArrayHasKey($field, $result);
+            }
+        }
     }
 
     public function testCities(): void
