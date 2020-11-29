@@ -21,12 +21,9 @@ next
 ```
     docker ps
 ```
-Copy CONTAINER_ID 
+Copy NAMES_CONTAINER
 next
 ```
-   docker exec -it YOUR_CONTAINER_ID sh
-```
-next
-```
-   vendor/phpunit/phpunit/phpunit Tests/
+   docker exec NAMES_CONTAINER vendor/phpunit/phpunit/phpunit Tests sh
+
 ```
